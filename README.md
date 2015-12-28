@@ -29,8 +29,4 @@ Upload the RDS template, use the RDSSecurityGroup resource you just created
 
 ### Create the Grafana instance
 
-Upload the main template, use the RDSComponentSecurityGroup resource you just created
-
-### TODO
-
-Install custom config for URL/S3
+Upload the main template, use the RDSComponentSecurityGroup resource you just created.  You will be asked for a grafana.ini URL, this is required as you will need to put your RDS Postgres details into a config file.  There is a sample config file in this repo, so you can either fork this repo or create a private gist/place in S3 to use with wget.  This will overwrite the default config file provided by Grafana, edit the example config as you see fit.

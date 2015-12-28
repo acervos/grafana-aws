@@ -28,6 +28,10 @@
       "Description": "The id of the RDS SecurityGroup",
       "Type": "String",
       "Default": "sg-"
+    },
+    "ConfigURL": {
+      "Description": "The URL for the Grafana.ini file",
+      "Type": "String"
     }
   },
   "AWSTemplateFormatVersion": "2010-09-09",
@@ -137,6 +141,18 @@
                 "- yum update -y\n",
                 "- yum install -y wget\n",
                 "- yum install -y https://grafanarel.s3.amazonaws.com/builds/grafana-2.6.0-1.x86_64.rpm\n",
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "- wget ",
+                      {
+                        "Ref": "ConfigURL"
+                      },
+                      " -O /etc/grafana/grafana.ini\n"
+                    ]
+                  ]
+                },
                 "- service grafana-server start\n"
               ]
             ]
