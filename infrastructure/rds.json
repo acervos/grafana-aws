@@ -19,16 +19,27 @@
     },
     "DBName": {
       "Type": "String",
-      "Default": "grafana"
+      "Default": "grafana",
+      "MinLength": "1",
+      "MaxLength": "64",
+      "AllowedPattern": "[a-zA-Z][a-zA-Z0-9]*",
+      "ConstraintDescription": "must begin with a letter and contain only alphanumeric characters."
     },
     "MasterUsername": {
       "Type": "String",
+      "MinLength": "1",
+      "MaxLength": "16",
+      "AllowedPattern": "[a-zA-Z][a-zA-Z0-9]*",
       "Description": "Username for database access"
     },
     "MasterUserPassword": {
       "NoEcho": true,
       "Type": "String",
-      "Description": "Password for database access - minimum 8 characters"
+      "Description": "Password for database access - minimum 8 characters",
+      "MinLength": "8",
+      "MaxLength": "41",
+      "AllowedPattern": "[a-zA-Z0-9]*",
+      "ConstraintDescription": "must contain 8 alphanumeric characters."
     },
     "MultiAZ": {
       "Type": "String",

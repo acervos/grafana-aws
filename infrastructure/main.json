@@ -176,7 +176,7 @@
           }
         ],
         "MinSize": 1,
-        "MaxSize": 1,
+        "MaxSize": 2,
         "LaunchConfigurationName": {
           "Ref": "ComponentLaunchConfiguration"
         },
@@ -275,6 +275,25 @@
           ]
         }
       }
+    }
+  },
+  "Outputs": {
+    "WebsiteURL": {
+      "Value": {
+       "Fn::Join": [
+         "",
+         [
+           "http://",
+           {
+             "Fn::GetAtt": [
+               "ComponentElasticLoadBalancer",
+               "DNSName"
+             ]
+           }
+         ]
+       ]
+     },
+      "Description": "URL for newly created grafana application"
     }
   }
 }
